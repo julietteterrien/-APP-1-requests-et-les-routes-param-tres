@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<body>
+    <h1>Résultat de l'API Wikidata pour {{ id }}</h1>
+
+    <h2>Informations sur la requête</h2>
+    
+    <h3>Code HTTP : {{ metadonnees.status_code }}</h3>
+    
+    <h3>Type de contenu : {{ metadonnees.content_type }}</h3>
+    
+    {% if data %}
+        <h2>Données de l'entité</h2>
+        <pre>{{ data | tojson(indent=2) }}</pre>
+    {% elif message_erreur %}
+        <p style="color: red;">{{ message_erreur }}</p>
+    {% endif %}
+</body>
+</html>
